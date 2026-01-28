@@ -1,0 +1,31 @@
+Actual code -
+
+if(
+  empty(prop("date")),
+  "",
+  if(
+    prop("Review Stage") <= 12,
+    dateAdd(
+      prop("date"),
+      if(prop("Review Stage") == 1, 1,
+      if(prop("Review Stage") == 2, 3,
+      if(prop("Review Stage") == 3, 7,
+      if(prop("Review Stage") == 4, 13,
+      if(prop("Review Stage") == 5, 25,
+      if(prop("Review Stage") == 6, 35,
+      if(prop("Review Stage") == 7, 50,
+      if(prop("Review Stage") == 8, 60,
+      if(prop("Review Stage") == 9, 70,
+      if(prop("Review Stage") == 10, 80,
+      if(prop("Review Stage") == 11, 90,
+      100
+      ))))))))))),
+      "days"
+    ),
+    dateAdd(
+      prop("date"),
+      100 + (prop("Review Stage") - 12) * 10,
+      "days"
+    )
+  )
+)
